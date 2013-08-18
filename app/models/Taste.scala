@@ -2,11 +2,13 @@ package models
 
 import play.api.db.slick.Config.driver.simple._
 
-object Tastes extends Table[(Long, String, String, Int)]("tastes") {
+case class Taste(id: Option[Long] = None, name: String, description: String, rating: Int)
+
+object Tastes extends Table[Taste]("tastes") {
   def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
   def name = column[String]("name")
   def description = column[String]("description")
   def rating = column[Int]("rating")
 
-  def * = id ~ name ~ description ~ rating
+  def * = id.? ~ name ~ description ~ rating <> (Taste, Taste.unapply(_))
 }

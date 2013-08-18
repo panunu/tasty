@@ -10,7 +10,8 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq(
     jdbc,
     "mysql" % "mysql-connector-java" % "5.1.21",
-    "com.typesafe.play" %% "play-slick" % "0.4.0"
+    "com.typesafe.play" %% "play-slick" % "0.4.0",
+    "com.typesafe.slick" %% "slick" % "1.0.1"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
