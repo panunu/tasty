@@ -1,26 +1,23 @@
 package controllers
 
 import play.api.mvc._
-import play.api.db._
 import play.api.Play.current
-import models.Tastes
-
+import play.api.db.slick.DB
 import play.api.db.slick.Config.driver.simple._
-import Database.threadLocalSession
+import scala.slick.session.Session
+import models.Tastes
 
 object Taste extends Controller {
 
   def list = Action {
     // TODO: Move to Service.
-    lazy val database = Database.forDataSource(DB.getDataSource())
-
-    database withSession {
-      val q = for {
+    DB.withSession { implicit session: scala.slick.session.Session =>
+      val tastes = for {
         t <- Tastes
       } yield (t)
-    }
 
-    Ok("Lus")
+      Ok(views.html.Taste.list(tastes.list))
+    }
   }
 
   def add = TODO

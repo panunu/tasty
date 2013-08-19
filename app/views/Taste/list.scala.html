@@ -1,0 +1,22 @@
+@(tastes: List[models.Taste])
+
+@main("Welcome to Play 2.1") {
+    @for(taste <- tastes) {
+        <article class="span3">
+            <div class="image" style="background-image: url('@routes.Assets.at("data/sample.jpg")');"></div>
+            <div class="content">
+                <h3>@taste.name</h3>
+
+                <div class="description">
+                    @taste.description
+                </div>
+
+                <aside>
+                    @*for(tag <- taste.tags) {
+                        @tag
+                    }*@
+                </aside>
+            </div>
+        </article>
+    }
+}
