@@ -1,4 +1,4 @@
-package com.panuleppaniemi.tasty
+package com.panuleppaniemi.tasty.controllers
 
 import org.scalatra._
 

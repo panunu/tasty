@@ -1,6 +1,6 @@
 import org.scalatra._
-import com.panuleppaniemi.tasty.TasteController
 import javax.servlet.ServletContext
+import com.panuleppaniemi.tasty.controllers.TasteController
 
 class ScalatraBootstrap extends LifeCycle {
   override def init(context: ServletContext) {
