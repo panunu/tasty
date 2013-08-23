@@ -8,6 +8,7 @@ import com.panuleppaniemi.tasty.models.Tastes
 class TasteController extends ScalatraServlet with Database {
 
   get("/") {
+    // TODO: Move to Service.
     db withSession {
       val tastes = for {
         t <- Tastes
