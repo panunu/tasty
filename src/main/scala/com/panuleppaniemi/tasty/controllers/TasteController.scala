@@ -1,21 +1,14 @@
 package com.panuleppaniemi.tasty.controllers
 
 import org.scalatra._
-import scala.slick.driver.MySQLDriver.simple._
-import com.panuleppaniemi.tasty.services.Database
-import com.panuleppaniemi.tasty.models.Tastes
+import com.panuleppaniemi.tasty.services.TasteService
 
-class TasteController extends ScalatraServlet with Database {
+class TasteController extends ScalatraServlet {
 
   get("/") {
-    // TODO: Move to Service.
-    db withSession {
-      val tastes = for {
-        t <- Tastes
-      } yield (t)
+    TasteService().all // TODO: Dependency-injectify.
 
-      "Hello"
-    }
+    "Hello"
   }
   
 }
