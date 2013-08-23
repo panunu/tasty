@@ -3,7 +3,9 @@ package com.panuleppaniemi.tasty.services
 import java.util.Properties
 import com.mchange.v2.c3p0.ComboPooledDataSource
 import scala.slick.driver.MySQLDriver.simple._
+import Database.threadLocalSession
 
+// TODO: Close the connection.
 trait Database {
   val db = Database.forDataSource(source)
 
