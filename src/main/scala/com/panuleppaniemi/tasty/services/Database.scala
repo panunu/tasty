@@ -6,8 +6,8 @@ import scala.slick.driver.MySQLDriver.simple._
 import Database.threadLocalSession
 
 // TODO: Close the connection.
-trait Database {
-  val db = Database.forDataSource(source)
+class Database {
+  val connection = Database.forDataSource(source)
 
   private val source = {
     val properties = new Properties
