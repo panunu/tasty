@@ -9,7 +9,7 @@ import Database.threadLocalSession
 class Database {
   val connection = Database.forDataSource(source)
 
-  private val source = {
+  val source = {
     val properties = new Properties
     properties.load(getClass.getResourceAsStream("/datasource.properties"))
 
