@@ -1,4 +1,4 @@
-package com.panuleppaniemi.tasty.services
+package com.panuleppaniemi.tasty.components
 
 import java.util.Properties
 import com.mchange.v2.c3p0.ComboPooledDataSource

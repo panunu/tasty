@@ -1,7 +1,7 @@
 import org.scalatra._
 import javax.servlet.ServletContext
 import com.panuleppaniemi.tasty.controllers.TasteController
-import com.panuleppaniemi.tasty.services.Container
+import com.panuleppaniemi.tasty.components.Container // TODO: Not singleton, so does not work?
 
 class ScalatraBootstrap extends LifeCycle with Container {
   override def init(context: ServletContext) {
