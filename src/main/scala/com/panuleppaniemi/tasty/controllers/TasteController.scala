@@ -1,9 +1,10 @@
 package com.panuleppaniemi.tasty.controllers
 
 import org.scalatra._
-import com.panuleppaniemi.tasty.services.Container
+import org.json4s.{DefaultFormats, Formats}
+import org.scalatra.json._
 
-class TasteController extends ScalatraServlet with Container {
+class TasteController extends Controller {
 
   get("/") {
     "Hello"
