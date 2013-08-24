@@ -6,8 +6,6 @@ import com.panuleppaniemi.tasty.services.Container
 class TasteController extends ScalatraServlet with Container {
 
   get("/") {
-    //TasteService().all // TODO: Dependency-injectify.
-
     "Hello"
   }
   
