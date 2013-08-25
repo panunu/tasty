@@ -6,9 +6,8 @@ import com.panuleppaniemi.tasty.components.Database
 import com.panuleppaniemi.tasty.models.Tastes
 
 class TasteService(database: Database) {
-
   def all = {
-    database.connection withSession {
+    database.connection withSession { // TODO: Figure out a way to hide this.
       val q = for {
         t <- Tastes
       } yield (t)
@@ -16,5 +15,4 @@ class TasteService(database: Database) {
       q.list
     }
   }
-
 }
