@@ -8,7 +8,7 @@ import com.panuleppaniemi.tasty.components.Controller
 class TasteController extends Controller {
 
   get("/") {
-    "Hello"
+    tasteService.all
   }
   
 }
