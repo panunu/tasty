@@ -1,4 +1,4 @@
-package com.panuleppaniemi.tasty.components
+package com.panuleppaniemi.components
 
 import org.scalatra._
 import org.json4s.{DefaultFormats, Formats}

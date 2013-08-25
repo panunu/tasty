@@ -1,4 +1,4 @@
-package com.panuleppaniemi.tasty.components
+package com.panuleppaniemi.components
 
 import com.softwaremill.macwire.MacwireMacros._
 import com.panuleppaniemi.tasty.services._

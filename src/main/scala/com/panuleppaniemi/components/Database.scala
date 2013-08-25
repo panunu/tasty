@@ -1,4 +1,4 @@
-package com.panuleppaniemi.tasty.components
+package com.panuleppaniemi.components
 
 import com.mchange.v2.c3p0.ComboPooledDataSource
 import scala.slick.driver.MySQLDriver.simple._
