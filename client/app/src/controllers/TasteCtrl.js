@@ -3,9 +3,9 @@
 tasty.controller('TasteCtrl', function ($scope, $http) {
     $http.get('/tastes')
         .success(function(data) {
-            $scope.list = data;
+            // TODO: Assign data to view.
         })
-        .error(function(){
-            $scope.list = [];
+        .error(function() {
+            // TODO: Lus?
         });
 });
