@@ -1,15 +1,22 @@
-## generic files to ignore
 *~
 *.lock
 *.DS_Store
 *.swp
 *.out
+*.eml
+*.iml
+*.ipr
+*.iws
+.*.sw?
+.idea
 
-# Java specific
+# Client
+
+client/bower_components
+
+# Server
 
 *.class
-
-# sbt specific
 server/target/
 server/project/boot
 server/lib_managed/*
@@ -21,15 +28,5 @@ server/project/plugins/target
 server/project/plugins/src_managed
 server/project/plugins/project
 server/project/target
-
-# intellij
-*.eml
-*.iml
-*.ipr
-*.iws
-.*.sw?
-.idea
-
-# paulp script
 server/.lib/
 

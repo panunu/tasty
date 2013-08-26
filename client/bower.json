@@ -2,7 +2,7 @@
   "name": "tasty",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "~1.1.6",
+    "angular": "~1.0.8",
     "underscore": "~1.5.1"
   }
 }
