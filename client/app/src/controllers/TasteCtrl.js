@@ -3,7 +3,7 @@
 tasty.controller('TasteCtrl', function ($scope, $http) {
     $http.get('/tastes')
         .success(function(data) {
-            // TODO: Assign data to view.
+            $scope.tastes = data;
         })
         .error(function() {
             // TODO: Lus?

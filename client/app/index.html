@@ -9,20 +9,16 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700" type="text/css">
 
 </head>
-<body>
+<body ng-app="tasty">
+    <div ng-view=""></div>
 
-<div class="container">
+    <script src="libraries/jquery/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
-</div>
+    <script src="libraries/angular/angular.min.js"></script>
+    <script src="libraries/underscore/underscore-min.js"></script>
 
-<script src="libraries/jquery/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-
-<script src="libraries/angular/angular.min.js"></script>
-<script src="libraries/underscore/underscore-min.js"></script>
-
-<script src="src/app.js"></script>
-<script src="src/controllers/TasteCtrl.js"></script>
-
+    <script src="src/app.js"></script>
+    <script src="src/controllers/TasteCtrl.js"></script>
 </body>
 </html>
