@@ -1,11 +1,9 @@
 'use strict';
 
-tasty.controller('TasteCtrl', function ($scope, $http) {
-    $http.get('/tastes')
-        .success(function(data) {
-            $scope.tastes = data;
-        })
-        .error(function() {
-            // TODO: Lus?
-        });
+tasty.controller('TasteCtrl', function ($scope, $http, TasteService) {
+    $scope.tastes = TasteService.all();
+
+    $scope.add = function(taste) {
+        TasteService.add(taste);
+    };
 });

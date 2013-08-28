@@ -1,6 +1,6 @@
 'use strict';
 
-var tasty = angular.module('tasty', []);
+var tasty = angular.module('tasty', ['restangular']);
 
 tasty.config(function ($routeProvider) {
     $routeProvider
