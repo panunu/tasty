@@ -7,10 +7,11 @@ import com.panuleppaniemi.tasty.models.Tastes
 
 class TasteService(database: Database) {
   def all = {
-    database.connection withSession { // TODO: Figure out a way to hide this.
+    database.connection withSession { // TODO: Figure out a way to abstract persistence layer.
+      // TODO: Try Query() here instead.
       val q = for {
         t <- Tastes
-      } yield (t)
+      } yield t
 
       q.list
     }
