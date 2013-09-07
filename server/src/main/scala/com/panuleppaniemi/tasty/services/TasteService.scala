@@ -7,13 +7,13 @@ import com.panuleppaniemi.tasty.models._
 
 class TasteService(database: Database) {
   def all = {
-    database.connection withSession { // TODO: Figure out a way to abstract DB layer.
+    database.session {
       Query(Tastes).list
     }
   }
 
   def add(taste: Taste) = {
-    database.connection withSession {
+    database.session {
       Tastes.insert(taste)
     }
   }
