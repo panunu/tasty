@@ -8,6 +8,8 @@ tasty.service('TasteService', ['Restangular', function(Restangular) {
     }
 
     this.add = function(taste) {
-        tastes.post(angular.toJson(taste));
+        return tastes.post(angular.toJson(taste)).then(function(data) {
+            return data;
+        });
     }
 }]);

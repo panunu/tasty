@@ -11,7 +11,7 @@ class TasteController extends Controller {
   }
 
   post("/tastes") {
-    println(parsedBody.extract[Taste])
+    tasteService.add(parsedBody.extract[Taste])
   }
-  
+
 }
