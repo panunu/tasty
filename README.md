@@ -3,7 +3,7 @@
 ## Build & Run ##
 
 ```sh
-$ cd Tasty
+$ cd server/
 $ ./sbt
 > container:start
 > browse
