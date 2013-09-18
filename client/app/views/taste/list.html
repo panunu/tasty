@@ -1,28 +1,24 @@
 <header class="container">
     <div class="row">
         <div class="col-lg-4">
-            tasty
+            <strong>
+                tasty
+            </strong>
         </div>
 
-        <div class="col-lg-1 col-lg-offset-3">
-            <a class="btn btn-primary pull-right">
-                <i class="glyphicon glyphicon-plus"></i>
-            </a>
-        </div>
-
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-lg-offset-3">
             <input type="text" ng-model="search" class="form-control pull-right" placeholder="Filter" />
+        </div>
+
+        <div class="col-lg-1">
+            <a data-toggle="modal" href="#form" class="btn btn-primary text-center">
+                <i class="glyphicon glyphicon-star"></i>
+            </a>
         </div>
     </div>
 </header>
 
 <section class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <ng-include src="'views/taste/form.html'"></ng-include>
-        </div>
-    </div>
-
     <div class="row">
         <article ng-repeat="taste in tastes | filter:search" class="col-md-3 col-sm-6 col-xs-12">
             <div class="content">
@@ -44,3 +40,18 @@
         </article>
     </div>
 </section>
+
+<div id="form" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Add to collection</h4>
+            </div>
+
+            <div class="modal-body">
+                <ng-include src="'views/taste/form.html'"></ng-include>
+            </div>
+        </div>
+    </div>
+</div>
