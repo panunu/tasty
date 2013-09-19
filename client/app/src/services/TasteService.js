@@ -5,11 +5,11 @@ tasty.service('TasteService', ['Restangular', function(Restangular) {
 
     this.all = function() {
         return tastes.getList();
-    }
+    };
 
     this.add = function(taste) {
         return tastes.post(angular.toJson(taste)).then(function(data) {
             return data;
         });
-    }
+    };
 }]);

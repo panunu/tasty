@@ -5,5 +5,5 @@ tasty.controller('TasteCtrl', function ($scope, $http, TasteService) {
 
     $scope.add = function(taste) {
         TasteService.add(taste);
-    }
+    };
 });

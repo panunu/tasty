@@ -1,0 +1,42 @@
+@font-primary: "Sanchez";
+
+@spacing: 20px;
+@radius: 3px;
+
+body {
+  font-family: @font-primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @font-primary;
+}
+
+section {
+  margin: @spacing 0;
+}
+
+header {
+  padding: @spacing 0;
+
+  background-color: #eee;
+}
+
+article {
+  margin-bottom: @spacing;
+
+  .content {
+    background-size: cover;
+    border-radius: @radius;
+
+    .inner {
+      padding: @spacing;
+
+      background-color: rgba(255, 230, 200, 0.9);
+      border-radius: @radius;
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+  }
+}
