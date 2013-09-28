@@ -1,6 +1,6 @@
 'use strict';
 
-var tasty = angular.module('tasty', ['restangular']);
+var tasty = angular.module('tasty', ['restangular', 'tag-input']);
 
 tasty.config(function ($routeProvider) {
     $routeProvider
