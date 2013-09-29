@@ -2,18 +2,17 @@
 
 angular.module('tag-input', []).directive('tagInput', function() {
     var link = function(scope, element) {
-        var input = element.find('input');
+        if (!scope.tags) {
+            scope.tags = [];
+        }
 
+        var input = element.find('input');
         input.bind('keyup', function(e) {
             if (e.keyCode != 13) {
                 return;
             }
 
             var value = input.val().trim();
-
-            if (!scope.tags) {
-                scope.tags = [];
-            }
 
             if (scope.tags.indexOf(value) !== -1) {
                 return;
