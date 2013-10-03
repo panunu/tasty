@@ -7,10 +7,11 @@ angular.module('tag-input', []).directive('tagInput', function() {
         }
 
         var input = element.find('input');
-        input.bind('keyup', function(e) {
+        input.bind('keydown', function(e) {
             if (e.keyCode != 13) {
                 return;
             }
+
 
             var value = input.val().trim();
 
@@ -21,6 +22,7 @@ angular.module('tag-input', []).directive('tagInput', function() {
             input.val('');
             scope.tags.push(value);
             scope.$apply();
+            e.preventDefault();
         });
     };
 
