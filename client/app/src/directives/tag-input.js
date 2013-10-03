@@ -15,7 +15,7 @@ angular.module('tag-input', []).directive('tagInput', function() {
 
             var value = input.val().trim();
 
-            if (scope.tags.indexOf(value) !== -1) {
+            if (!value || scope.tags.indexOf(value) !== -1) {
                 return;
             }
 
