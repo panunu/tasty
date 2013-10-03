@@ -7,4 +7,5 @@ trait Container {
   lazy val database = wire[Database]
 
   lazy val tasteService = wire[TasteService]
+  lazy val tagService = wire[TagService]
 }
