@@ -11,11 +11,10 @@ class TasteController extends Controller {
   }
 
   post("/tastes") {
-    // TODO: How to avoid Any?
-
     val tags = tagService.findByNameOrCreate(((parsedBody \ "tags").values).asInstanceOf[List[String]])
     val taste = tasteService.add(parsedBody.extract[Taste])
-    tagService.tag(taste.asInstanceOf[Taste], tags.asInstanceOf[List[Tag]])
+
+    tagService.tag(taste, tags)
   }
 
 }

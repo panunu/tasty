@@ -6,11 +6,11 @@ import com.panuleppaniemi.components.Database
 import com.panuleppaniemi.tasty.models._
 
 class TasteService(database: Database) {
-  def all = database.session {
+  def all = database.connection.withSession {
     Query(Tastes).list
   }
 
-  def add(taste: Taste) = database.session {
-    Tastes.insert(taste)
+  def add(taste: Taste) = database.connection.withSession {
+    taste.copy(id=Some(Tastes returning Tastes.id insert(taste))) // TODO: too much code.
   }
 }

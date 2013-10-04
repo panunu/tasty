@@ -6,7 +6,7 @@ import com.panuleppaniemi.components.Database
 import com.panuleppaniemi.tasty.models._
 
 class TagService(database: Database) {
-  def all = database.session {
+  def all = database.connection.withSession { // TODO: Extract again...
     Query(Tags).list
   }
 
@@ -19,17 +19,18 @@ class TagService(database: Database) {
     }
   }
 
-  def findOneByName(name: String) = database.session {
+  def findOneByName(name: String) = database.connection.withSession {
     Query(Tags).filter(_.name === name.toLowerCase).firstOption
   }
 
-  def add(tag: Tag) = database.session {
-    Tags.insert(tag)
+  def add(tag: Tag) = database.connection.withSession {
+    tag.copy(id=Some(Tags returning Tags.id insert(tag))) // TODO: Extract copy mechanism somehow.
   }
 
-  def tag(taste: Taste, tags: List[Tag]): List[Any] = tags.map(tag(taste, _))
+  def tag(taste: Taste, tags: List[Tag]): List[Tagging] = tags.map(tag(taste, _))
 
-  def tag(taste: Taste, tag: Tag): Any = database.session {
-    Taggings.insert(new Tagging(None, taste.id.getOrElse(0), tag.id.getOrElse(0))) // TODO: This can't be like this?
+  def tag(taste: Taste, tag: Tag) = database.connection.withSession {
+    val tagging = new Tagging(None, taste.id.getOrElse(0), tag.id.getOrElse(0))
+    tagging.copy(id=Some(Taggings returning Taggings.id insert(tagging)))
   }
 }

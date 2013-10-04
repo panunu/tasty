@@ -7,6 +7,4 @@ import scala.slick.session.Database.threadLocalSession
 class Database {
   val source = new ComboPooledDataSource
   val connection = Database.forDataSource(source)
-
-  def session(f: => Any) = connection withSession { f }
 }
