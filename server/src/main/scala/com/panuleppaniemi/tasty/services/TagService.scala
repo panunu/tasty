@@ -10,6 +10,8 @@ class TagService(database: Database) {
     Query(Tags).list
   }
 
+  def findByNameOrCreate(tags: List[String]) = tags.map(findOneByNameOrCreate(_))
+
   def findOneByNameOrCreate(name: String) = {
     findOneByName(name) match {
       case Some(tag: Tag) => tag
@@ -23,5 +25,11 @@ class TagService(database: Database) {
 
   def add(tag: Tag) = database.session {
     Tags.insert(tag)
+  }
+
+  def tag(taste: Taste, tags: List[Tag]): List[Any] = tags.map(tag(taste, _))
+
+  def tag(taste: Taste, tag: Tag): Any = database.session {
+    Taggings.insert(new Tagging(None, taste.id.getOrElse(0), tag.id.getOrElse(0))) // TODO: This can't be like this?
   }
 }
