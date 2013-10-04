@@ -12,14 +12,14 @@ class TagService(database: Database) {
     }
   }
 
-  def findOneOrCreate(name: String) = {
-    findByName(name) match {
+  def findOneByNameOrCreate(name: String) = {
+    findOneByName(name) match {
       case Some(tag: Tag) => tag
       case None => add(new Tag(None, name.toLowerCase))
     }
   }
 
-  def findByName(name: String) = {
+  def findOneByName(name: String) = {
     database.session {
       Query(Tags).filter(_.name === name.toLowerCase).firstOption
     }

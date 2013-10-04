@@ -11,7 +11,7 @@ class TasteController extends Controller {
   }
 
   post("/tastes") {
-    val tags = parsedBody.extract[Tags].tags.map(tagService.findOneOrCreate _)
+    val tags = parsedBody.extract[Tags].tags.map(tagService.findOneByNameOrCreate _)
     tasteService.add(parsedBody.extract[Taste])
   }
 

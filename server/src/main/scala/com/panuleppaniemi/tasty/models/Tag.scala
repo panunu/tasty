@@ -11,4 +11,6 @@ object Tags extends Table[Tag]("tags") {
   def name = column[String]("name")
 
   def * = id.? ~ name <> (Tag, Tag.unapply(_))
+
+  def nameIsUnique = index("index_name_unique", (name), unique = true)
 }
