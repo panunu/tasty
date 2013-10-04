@@ -6,10 +6,8 @@ import com.panuleppaniemi.components.Database
 import com.panuleppaniemi.tasty.models._
 
 class TagService(database: Database) {
-  def all = {
-    database.session {
-      Query(Tags).list
-    }
+  def all = database.session {
+    Query(Tags).list
   }
 
   def findOneByNameOrCreate(name: String) = {
@@ -19,15 +17,11 @@ class TagService(database: Database) {
     }
   }
 
-  def findOneByName(name: String) = {
-    database.session {
-      Query(Tags).filter(_.name === name.toLowerCase).firstOption
-    }
+  def findOneByName(name: String) = database.session {
+    Query(Tags).filter(_.name === name.toLowerCase).firstOption
   }
 
-  def add(tag: Tag) = {
-    database.session {
-      Tags.insert(tag)
-    }
+  def add(tag: Tag) = database.session {
+    Tags.insert(tag)
   }
 }
