@@ -10,4 +10,6 @@ object Taggings extends Table[Tagging]("taggings") {
   def taste = column[Long]("taste_id")
 
   def * = id.? ~ tag ~ taste <> (Tagging, Tagging.unapply(_))
+  def tagForeignKey = foreignKey("tag_fk", tag, Tags)(_.id)
+  def tasteForeignKey = foreignKey("taste_fk", taste, Tastes)(_.id)
 }

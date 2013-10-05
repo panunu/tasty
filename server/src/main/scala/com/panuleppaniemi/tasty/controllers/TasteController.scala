@@ -7,14 +7,14 @@ import com.panuleppaniemi.tasty.models._
 class TasteController extends Controller {
 
   get("/tastes") {
-    tasteService.all
+    println(tasteService.all)
   }
 
   post("/tastes") {
     val tags = tagService.findByNameOrCreate(((parsedBody \ "tags").values).asInstanceOf[List[String]])
     val taste = tasteService.add(parsedBody.extract[Taste])
 
-    tagService.tag(taste, tags)
+    taggingService.tag(taste, tags)
   }
 
 }

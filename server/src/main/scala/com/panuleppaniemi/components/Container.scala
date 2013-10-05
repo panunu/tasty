@@ -8,4 +8,5 @@ trait Container {
 
   lazy val tasteService = wire[TasteService]
   lazy val tagService = wire[TagService]
+  lazy val taggingService = wire[TaggingService]
 }
