@@ -7,7 +7,7 @@ import com.panuleppaniemi.tasty.models._
 class TasteController extends Controller {
 
   get("/tastes") {
-    println(tasteService.all)
+    tasteService.all
   }
 
   post("/tastes") {
