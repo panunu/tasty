@@ -7,7 +7,7 @@ object TastyBuild extends Build {
   val Organization = "com.panuleppaniemi"
   val Name = "Tasty"
   val Version = "0.1.0-SNAPSHOT"
-  val ScalaVersion = "2.10.2"
+  val ScalaVersion = "2.10.3"
   val ScalatraVersion = "2.2.1"
 
   lazy val project = Project (
@@ -34,5 +34,7 @@ object TastyBuild extends Build {
         "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar"))
       )
     )
-  )
+  ).dependsOn(deliciousValidation)
+
+  lazy val deliciousValidation = RootProject(uri("git://github.com/mpartel/delicious-validation"))
 }

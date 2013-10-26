@@ -1,14 +1,19 @@
-@font-primary: "Sanchez";
+@font-primary: "Old Standard TT";
 
 @spacing: 20px;
 @radius: 3px;
 
 body {
   font-family: @font-primary;
+
+  background-image: url('../images/header-1.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: @font-primary;
+  font-weight: 700;
 }
 
 section {
@@ -17,21 +22,24 @@ section {
 
 header {
   padding: @spacing 0;
+  margin-bottom: @spacing * 3;
 
-  background-color: #eee;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: white;
 }
 
 article {
   margin-bottom: @spacing;
 
+  color: white;
+
   .content {
-    background-size: cover;
     border-radius: @radius;
 
     .inner {
       padding: @spacing;
 
-      background-color: rgba(255, 230, 200, 0.9);
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: @radius;
 
       h3 {
