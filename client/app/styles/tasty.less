@@ -5,6 +5,8 @@
 
 @color-primary: #357a79;;
 @color-accent: #ff7b22;
+@black: #111;
+@white: #fff;
 
 body {
   font-family: @font-primary;
@@ -19,6 +21,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: @font-primary;
   font-weight: 800;
+  color: @black;
 }
 
 section {
@@ -29,22 +32,15 @@ header {
   padding: @spacing 0;
   margin-bottom: @spacing * 3;
 
-  background-color: rgba(20, 20, 20, 0.25);
-  color: white;
+  //background-color: rgba(0, 0, 0, 0.25);
 
-  input {
-    opacity: 0.25;
-
-    &:hover {
-      opacity: 1;
-    }
+  h4 {
+    color: @white;
   }
 }
 
 article {
   margin-bottom: @spacing;
-
-  color: white;
 
   .content {
     border-radius: @radius;
@@ -52,13 +48,16 @@ article {
     .inner {
       padding: @spacing;
 
-      background-color: rgba(20, 20, 20, 0.75);
+      background-color: rgba(0, 0, 0, 0.5);
       border-radius: @radius;
+
+      color: @white;
 
       h3 {
         margin-top: 0;
 
         font-size: 24px;
+        color: @white;
       }
 
       .tags {
@@ -81,7 +80,7 @@ article {
     background-color: @color-accent;
     border-color: @color-accent;
     border-bottom: 3px solid transparent;
-    border-bottom-color: darken(@color-accent, 8);
+    border-bottom-color: darken(@color-accent, 10%);
   }
 
   &:hover {
