@@ -1,4 +1,5 @@
 @font-primary: "Open Sans";
+@font-brand: "Arizonia";
 
 @spacing: 20px;
 @radius: 3px;
@@ -35,6 +36,11 @@ header {
   //background-color: rgba(0, 0, 0, 0.25);
 
   h4 {
+    margin: 0;
+
+    font-family: @font-brand;
+    font-size: 32px;
+    font-weight: 400;
     color: @white;
   }
 }
@@ -60,12 +66,12 @@ article {
         color: @white;
       }
 
+      .description {
+        font-style: italic;
+      }
+
       .tags {
         padding-top: @spacing;
-
-        .label {
-          font-weight: 300;
-        }
       }
     }
   }
@@ -88,6 +94,12 @@ article {
   }
 
   &:active {
-
+    position: relative;
+    top: 1px;
   }
+}
+
+.label {
+  background-color: @color-accent;
+  font-weight: 300;
 }
