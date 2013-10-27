@@ -13,7 +13,7 @@ object TastyBuild extends Build {
   lazy val project = Project (
     "tasty",
     file("."),
-    settings = Defaults.defaultSettings ++ ScalatraPlugin.scalatraWithJRebel ++ Seq(
+    settings = seq(com.typesafe.startscript.StartScriptPlugin.startScriptForClassesSettings: _*) ++ Defaults.defaultSettings ++ ScalatraPlugin.scalatraWithJRebel ++ Seq(
       organization := Organization,
       name := Name,
       version := Version,
@@ -30,8 +30,8 @@ object TastyBuild extends Build {
         "com.softwaremill.macwire" %% "scopes" % "0.4",
         "org.scalatra" %% "scalatra-json" % "2.2.1",
         "org.json4s" %% "json4s-jackson" % "3.2.4",
-        "org.eclipse.jetty" % "jetty-webapp" % "8.1.8.v20121106" % "container",
-        "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar"))
+        "org.eclipse.jetty" % "jetty-webapp" % "8.1.8.v20121106" % "compile;container",
+        "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "compile;container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar"))
       )
     )
   ).dependsOn(deliciousValidation)
