@@ -10,25 +10,8 @@ class TasteService(database: Database) {
     Query(Tastes).list
   }
 
-  def allCombinedWithTags = database.connection.withSession {
-    val query = for {
-      taste <- Tastes
-    } yield (taste)
-
-    //println(query.selectStatement)
-    //println(query.list)
-
-    println()
-    println()
-
-
-    val q = Taggings.filter(_.tag == 1)
-    println(q.selectStatement)
-    println(q.list)
-
-  }
-
   def add(taste: Taste) = database.connection.withSession {
-    taste.copy(id=Some(Tastes returning Tastes.id insert(taste))) // TODO: too much code.
+    val inserted = Tastes returning Tastes.id insert(taste)
+    taste.copy(id=Some(inserted)) // TODO: Get rid of too much code.
   }
 }

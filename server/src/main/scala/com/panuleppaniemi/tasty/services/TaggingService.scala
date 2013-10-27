@@ -15,4 +15,17 @@ class TaggingService(database: Database) {
     tagging.copy(id=Some(inserted))
   }
 
+  def withTags(taste: Taste) = database.connection.withSession {
+    // TODO: Try to reduce into a single query.
+
+    val q = for {
+      tagging <- Taggings
+      tag <- Tags
+      if tagging.taste === taste.id
+      if tagging.tag === tag.id
+    } yield (tag)
+
+    TasteWithTags(taste, q.list)
+  }
+
 }

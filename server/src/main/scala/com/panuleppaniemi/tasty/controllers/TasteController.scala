@@ -7,7 +7,7 @@ import com.panuleppaniemi.tasty.models._
 class TasteController extends Controller {
 
   get("/tastes") {
-    tasteService.all
+    tasteService.all.map(taggingService.withTags(_))
   }
 
   post("/tastes") {
