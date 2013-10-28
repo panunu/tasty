@@ -6,7 +6,7 @@ import com.panuleppaniemi.components.Database
 import com.panuleppaniemi.tasty.models._
 
 class TagService(database: Database) {
-  def all = database.connection.withSession { // TODO: Extract again...
+  def findAll = database.connection.withSession {
     Query(Tags).list
   }
 
@@ -24,6 +24,7 @@ class TagService(database: Database) {
   }
 
   def add(tag: Tag) = database.connection.withSession {
-    tag.copy(id=Some(Tags returning Tags.id insert(tag))) // TODO: Extract copy mechanism somehow.
+    val inserted = Tags returning Tags.id insert(tag)
+    tag.copy(id=Some(inserted)) // TODO: Extract copy mechanism somehow.
   }
 }

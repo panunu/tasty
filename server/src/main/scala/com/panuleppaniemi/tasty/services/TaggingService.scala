@@ -15,7 +15,7 @@ class TaggingService(database: Database) {
     tagging.copy(id=Some(inserted))
   }
 
-  def withTags(taste: Taste) = database.connection.withSession {
+  def combineWithTags(taste: Taste) = database.connection.withSession {
     // TODO: Try to reduce into a single query.
 
     val q = for {

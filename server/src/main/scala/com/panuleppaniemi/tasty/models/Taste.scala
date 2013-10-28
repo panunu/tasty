@@ -15,7 +15,5 @@ object Tastes extends Table[Taste]("tastes") {
   def description = column[String]("description")
   def rating = column[Int]("rating")
 
-  def tags = Taggings.filter(_.taste === id).flatMap(_.tagForeignKey)
-
   def * = id.? ~ name ~ description ~ rating <> (Taste, Taste.unapply _)
 }

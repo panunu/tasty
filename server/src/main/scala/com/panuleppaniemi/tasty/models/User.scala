@@ -2,7 +2,7 @@ package com.panuleppaniemi.tasty.models
 
 import scala.slick.driver.MySQLDriver.simple._
 
-case class User(id: Option[Int] = None, email: String)
+case class User(id: Option[Int] = None, name: String, email: String, password: String)
 
 object Users extends Table[User]("users") {
   def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
