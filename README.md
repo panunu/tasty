@@ -10,3 +10,9 @@ $ ./sbt
 ```
 
 If `browse` doesn't launch your browser, manually open [http://localhost:8080/](http://localhost:8080/) in your browser.
+
+# Deployment
+
+`sbt package`
+
+`heroku deploy:war --war target/scala-2.10/tasty_2.10-0.1.0-SNAPSHOT.war --app HEROKU-APP-NAME`
