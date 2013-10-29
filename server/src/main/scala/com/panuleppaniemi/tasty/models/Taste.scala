@@ -1,6 +1,6 @@
 package com.panuleppaniemi.tasty.models
 
-import scala.slick.driver.MySQLDriver.simple._
+import scala.slick.driver.PostgresDriver.simple._
 import so.delicious.validation._
 
 case class Taste(id: Option[Int] = None, name: String, description: String, rating: Int) extends Validated {

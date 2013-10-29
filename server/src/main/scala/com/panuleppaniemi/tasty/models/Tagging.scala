@@ -1,6 +1,6 @@
 package com.panuleppaniemi.tasty.models
 
-import scala.slick.driver.MySQLDriver.simple._
+import scala.slick.driver.PostgresDriver.simple._
 
 case class Tagging(id: Option[Int] = None, tag: Int, taste: Int)
 
