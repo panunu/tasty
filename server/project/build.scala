@@ -2,6 +2,7 @@ import sbt._
 import Keys._
 import org.scalatra.sbt._
 import org.scalatra.sbt.PluginKeys._
+import com.earldouglas.xsbtwebplugin.PluginKeys._
 
 object TastyBuild extends Build {
   val Organization = "com.panuleppaniemi"
@@ -10,7 +11,7 @@ object TastyBuild extends Build {
   val ScalaVersion = "2.10.3"
   val ScalatraVersion = "2.2.1"
 
-  lazy val project = Project (
+  lazy val project: Project = Project (
     "tasty",
     file("."),
     settings = Defaults.defaultSettings ++ ScalatraPlugin.scalatraWithJRebel ++ Seq(
@@ -18,6 +19,7 @@ object TastyBuild extends Build {
       name := Name,
       version := Version,
       scalaVersion := ScalaVersion,
+      webappResources in Compile += project.base / ".." / "client" / "app",
       resolvers += Classpaths.typesafeReleases,
       libraryDependencies ++= Seq(
         "org.scalatra" %% "scalatra" % ScalatraVersion,
