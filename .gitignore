@@ -29,4 +29,4 @@ server/project/plugins/src_managed
 server/project/plugins/project
 server/project/target
 server/.lib/
-
+server/src/main/resources/c3p0.properties
